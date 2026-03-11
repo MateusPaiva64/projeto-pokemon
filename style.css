@@ -1,0 +1,82 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: linear-gradient(#4B0082 0%, #2E0854 33.33%, #1A052D 66.67%, #0A0112 100%);
+    min-height: 100vh; /* Mudado para min-height para evitar cortes no mobile */
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Inter', sans-serif; overflow-x: hidden;
+}
+
+.container {
+    width: 90%; min-height: 90vh; display: flex; align-items: center; justify-content: center;
+    border-radius: 24px; border: 2px solid #8A2BE2; background-color: rgba(0, 0, 0, 0.2);
+    position: relative; padding: 2rem; margin: 20px 0;
+}
+
+.container__informacoes { display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 800px; }
+
+#arena { display: flex; justify-content: center; align-items: center; gap: 40px; min-height: 250px; margin-bottom: 10px; }
+
+#arena img { 
+    width: 200px; height: 200px; 
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+
+@keyframes aura-pulsa {
+    0% { filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8)); transform: scale(1); }
+    50% { filter: drop-shadow(0 0 25px rgba(255, 255, 255, 1)); transform: scale(1.05); }
+    100% { filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8)); transform: scale(1); }
+}
+
+.preview-pokemon { animation: aura-pulsa 2s infinite ease-in-out; }
+
+.vencedor { 
+    transform: scale(1.4) !important; 
+    filter: drop-shadow(0 0 30px #FFD700) !important; 
+    animation: none !important; 
+}
+
+#vs { font-size: 3.5rem; font-family: 'Chakra Petch'; color: #FFD700; }
+
+.container__texto h1 { font-family: 'Chakra Petch'; font-size: 60px; margin: 15px 0; color: #FFFFFF !important; text-align: center; }
+
+.container__texto .texto__paragrafo { font-size: 26px; margin-bottom: 25px; color: #FFFFFF !important; text-align: center; font-weight: 700; }
+
+.container__input {
+    width: 100%; max-width: 450px; height: 60px; border-radius: 12px; margin-bottom: 25px;
+    padding: 0 15px; font-size: 20px; font-weight: bold; background-color: #FFFFFF; color: #1A052D; border: 3px solid #8A2BE2;
+}
+
+.container__botoes { display: flex; gap: 20px; width: 100%; max-width: 450px; }
+
+.container__botao {
+    flex: 1; padding: 18px; border-radius: 12px; background: #8A2BE2; color: white;
+    border: none; font-weight: bold; font-size: 20px; cursor: pointer; transition: 0.3s;
+}
+
+.container__botao:hover:not(:disabled) { background: #9D50ED; transform: translateY(-3px); }
+
+button:disabled { background: #444; opacity: 0.6; }
+
+/* --- RESPONSIVIDADE (MOBILE) --- */
+@media (max-width: 768px) {
+    .container { width: 95%; padding: 1rem; border-radius: 15px; }
+    
+    #arena { gap: 15px; min-height: 180px; }
+    
+    #arena img { width: 120px; height: 120px; } /* Pokémons menores no celular */
+    
+    .vencedor { transform: scale(1.2) !important; }
+    
+    #vs { font-size: 2rem; }
+    
+    .container__texto h1 { font-size: 32px; }
+    
+    .container__texto .texto__paragrafo { font-size: 18px; }
+    
+    .container__input { height: 50px; font-size: 16px; }
+    
+    .container__botoes { flex-direction: column; gap: 10px; } /* Botões um em cima do outro */
+    
+    .container__botao { padding: 15px; font-size: 18px; }
+}

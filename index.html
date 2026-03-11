@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Mega Batalha Pokémon</title>
+</head>
+<body>
+    <div class="container">
+        <div class="container__informacoes">
+            <div id="arena">
+                <img id="imgUsuario" src="" style="display: none;">
+                <span id="vs" style="display: none;">VS</span>
+                <img id="imgMaquina" src="" style="display: none;">
+            </div>
+
+            <div class="container__texto">
+                <h1 id="tituloPrincipal">Batalha Pokémon!</h1>
+                <p class="texto__paragrafo">Escolha seu inicial entre os 25 primeiros:</p>
+            </div>
+
+            <select id="escolhaUsuario" class="container__input" onchange="atualizarPreview()">
+                <option value="" disabled selected>Carregando Pokémons...</option>
+            </select>
+
+            <div class="container__botoes">
+                <button onclick="verificarChute()" class="container__botao">Batalhar!</button>
+                <button onclick="reiniciarJogo()" id="reiniciar" class="container__botao" disabled>Novo jogo</button>
+            </div>
+        </div>
+    </div>
+    <script src="app.js" defer></script>
+</body>
+</html>
